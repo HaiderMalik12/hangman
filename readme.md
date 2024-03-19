@@ -16,5 +16,3 @@
    7. Print the Character
 5. If charachter matched then print the API response
 
-
-badr@polly.ai

@@ -23,10 +23,12 @@ async function getWords(){
 
 
 
-async function getFilterAbleGusess(){
+async function startGame(){
  const {hangman} = await createGame(); 
+ console.log('hangman length ', hangman.length)
   const words = (await getWords()).split('\n')
   const filterAbleGusses = words.filter(word => word.length === hangman.length)
+  console.log(filterAbleGusses)
 
   //sort all the filterAbleGusses in the higest occurence character
   sortWithHighOccurence(filterAbleGusses);
@@ -55,7 +57,7 @@ async function sortWithHighOccurence(filterAbleGusses){
   });
 
   console.log('Sorted Array based on higest occurence of characters');
- 
+   console.log('SortedFilterABleGuesses', filterAbleGusses);
 
   // TEst Guess Letter response
   console.log(await sendGuessLetterReq('a'))
@@ -81,4 +83,4 @@ async function sendGuessLetterReq(letter){
     return await gameResponse.json()
 }
 
-getFilterAbleGusess()
+startGame()

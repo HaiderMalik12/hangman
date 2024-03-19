@@ -1,0 +1,19 @@
+{
+  "name": "test-polly",
+  "version": "1.0.0",
+  "description": "1. Create the Game by getting the hamstring length (How many characters will be involved in the word) i.e quizzical 2. Generate 9(whatever length is comming from the above response) digit random character 3. Now send the request to guess the letter. You have provide the character here. Iterate over the guess word length and guess the character 4. If charachter matched then continue to the next step",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },"type": "module"
+}

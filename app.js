@@ -19,7 +19,8 @@ async function getWords(){
 
 async function getFilterAbleGusess(){
  const {hamstring} = await createGame(); 
-  console.log(await getWords())
+  const words = (await getWords()).split('\n')
+  console.log(words);
 }
 
 getFilterAbleGusess()

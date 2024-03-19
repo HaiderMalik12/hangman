@@ -18,9 +18,9 @@ async function getWords(){
 }
 
 async function getFilterAbleGusess(){
- const {hamstring} = await createGame(); 
+ const {hangman} = await createGame(); 
   const words = (await getWords()).split('\n')
-  console.log(words);
+  const filterAbleWords = words.filter(word => word.length === hangman.length)
 }
 
 getFilterAbleGusess()

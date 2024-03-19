@@ -17,10 +17,43 @@ async function getWords(){
     return await words.text()
 }
 
+
+
 async function getFilterAbleGusess(){
  const {hangman} = await createGame(); 
   const words = (await getWords()).split('\n')
-  const filterAbleWords = words.filter(word => word.length === hangman.length)
+  const filterAbleGusses = words.filter(word => word.length === hangman.length)
+
+  //sort all the filterAbleGusses in the higest occurence character
+  sortWithHighOccurence(filterAbleGusses);
 }
+
+/**
+ * Sort Array with Highest occurence characters
+ */
+function sortWithHighOccurence(filterAbleGusses){
+    function calculateCharFrequency(word) {
+        const freuquency = {};
+        for(const char of word){
+            freuquency[char] = (freuquency[char] || 0) + 1
+        }
+        return freuquency
+    }
+
+  filterAbleGusses.sort((a,b) => {
+    const freuquencyA = calculateCharFrequency(a);
+    const freuquencyB = calculateCharFrequency(b);
+
+    const totalOccurenceA = Object.values(freuquencyA).reduce((acc, val) => acc + val, 0)
+    const totalOccurenceB = Object.values(freuquencyB).reduce((acc, val) => acc + val, 0)
+
+    return totalOccurenceB - totalOccurenceA
+  });
+
+  console.log('Sorted Array based on higest occurence of characters');
+  console.log(filterAbleGusses);
+
+}
+
 
 getFilterAbleGusess()
